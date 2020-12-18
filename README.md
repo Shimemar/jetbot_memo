@@ -24,6 +24,7 @@ Mem:           1.9G        649M        546M         67M        775M        1.2G
 Swap:          4.0G          0B        4.0G
 
 ＃ＧＵＩをオフにしてメモリーを増やす
+
 systemctl get-default
 sudo systemctl set-default multi-user.target
 sudo reboot
