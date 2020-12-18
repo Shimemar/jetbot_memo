@@ -1,0 +1,15 @@
+
+Dockerの基本使い方。
+
+#システム内のコンテナイメージのリストを表示する。
+docker images
+
+shimizu@jetson:~$ sudo docker images
+REPOSITORY                       TAG                    IMAGE ID            CREATED             SIZE
+jetbot/jetbot                    jupyter-0.4.2-32.4.4   e49f04a0fab0        5 weeks ago         5.17GB
+jetbot/jetbot                    display-0.4.2-32.4.4   018b8f6bb610        5 weeks ago         4.79GB
+dustynv/jetson-inference         r32.4.4                8c3e030643bd        7 weeks ago         2.88GB
+nvcr.io/nvidia/dli/dli-nano-ai   v2.0.1-r32.4.4         c137d31982aa        8 weeks ago         3.73GB
+nvcr.io/nvidia/l4t-pytorch       r32.4.4-pth1.6-py3     78f267ed1c22        8 weeks ago         2.2GB
+
+
