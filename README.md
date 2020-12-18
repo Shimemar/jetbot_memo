@@ -6,6 +6,43 @@ jetson nano 2G でjetbotを動かす際の勘どころをメモしていきま�
 
 
 
-1.ハードウェア要件は守るべし
+・ハードウェア要件は守るべし
 　例えば、USBカメラを付けた状態で、セットアップしようとするとdockerでエラーが発生する。
  
+ 
+ 
+ 
+
+
+・メモリーを増やす技
+
+###############################################################################################
+＃ＧＵＩが有効の時のメモリーサイズ
+shimizu@jetson:~$ free -h
+              total        used        free      shared  buff/cache   available
+Mem:           1.9G        649M        546M         67M        775M        1.2G
+Swap:          4.0G          0B        4.0G
+
+＃ＧＵＩをオフにしてメモリーを増やす
+systemctl get-default
+sudo systemctl set-default multi-user.target
+sudo reboot
+
+＃ＧＵＩが無効の時のメモリーサイズ
+shimizu@jetson:~$ free -h
+              total        used        free      shared  buff/cache   available
+Mem:           1.9G        225M        1.4G         18M        298M        1.6G
+Swap:          4.0G          0B        4.0G
+
+#ＧＵＩに戻す
+systemctl get-default
+sudo systemctl set-default graphical.target
+sudo reboot
+
+jetson-inferenceでDocker/run.shを実行したあとのメモリー（GUIオフ）
+root@jetson:/jetson-inference# free -h
+              total        used        free      shared  buff/cache   available
+Mem:           1.9G        286M        666M         18M        1.0G        1.5G
+Swap:          4.0G          0B        4.0G
+
+###############################################################################################
